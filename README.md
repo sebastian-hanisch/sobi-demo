@@ -12,10 +12,10 @@ die Demo misst, dass die Schwäche wandert, statt zu verschwinden: gleiche Spekt
 ```
 ica-demo → sobi-demo          (zeitliche Struktur statt Nicht-Gaußianität)
          → NMF                (Nichtnegativität statt Unabhängigkeit)
-         → Sparse Component Analysis   (mehr Quellen als Sensoren)
-         → Spike-Sorting-Zweig         (Standard-Pipeline, Vorlagenabgleich, Verzögerungsgraph)
+         → Sparse Component Analysis   (mehr Quellen als Sensoren: sca-demo)
+         → Spike-Sorting-Zweig         (Standard-Pipeline, Vorlagenabgleich, Verzögerungsgraph: spike-sorting-demo, template-matching-demo, delay-graph-demo)
 ```
-Die anderen Nachfolger sind noch nicht gebaut; die Demo markiert nur, welche Annahme sie jeweils lockern.
+Gebaut sind inzwischen SCA und der Spike-Sorting-Zweig; NMF fehlt noch. Die Demo selbst markiert nur, welche Annahme die Nachfolger jeweils lockern.
 
 | Frage | Ergebnis (4 Neuronen, 6 Elektroden, Rauschen 0.05, 20000 Abtastwerte; Mittel über 5 feste Datensätze, Seeds 100000–100004) |
 |---|---|
