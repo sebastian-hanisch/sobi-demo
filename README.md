@@ -11,11 +11,11 @@ zwei farbige Quellen, deren Autokorrelation (bzw. Rhythmusfrequenz) sich um eine
 die Demo misst, dass die Schwäche wandert, statt zu verschwinden: gleiche Spektren, falsche Verzögerungen und Rauschen treffen SOBI.
 ```
 ica-demo → sobi-demo          (zeitliche Struktur statt Nicht-Gaußianität)
-         → NMF                (Nichtnegativität statt Unabhängigkeit)
+         → NMF                (Nichtnegativität statt Unabhängigkeit: nmf-demo)
          → Sparse Component Analysis   (mehr Quellen als Sensoren: sca-demo)
          → Spike-Sorting-Zweig         (Standard-Pipeline, Vorlagenabgleich, Verzögerungsgraph: spike-sorting-demo, template-matching-demo, delay-graph-demo)
 ```
-Gebaut sind inzwischen SCA und der Spike-Sorting-Zweig; NMF fehlt noch. Die Demo selbst markiert nur, welche Annahme die Nachfolger jeweils lockern.
+Gebaut sind inzwischen SCA, NMF und der Spike-Sorting-Zweig – die Linie ist vollständig. Die Demo selbst markiert nur, welche Annahme die Nachfolger jeweils lockern.
 
 | Frage | Ergebnis (4 Neuronen, 6 Elektroden, Rauschen 0.05, 20000 Abtastwerte; Mittel über 5 feste Datensätze, Seeds 100000–100004) |
 |---|---|
