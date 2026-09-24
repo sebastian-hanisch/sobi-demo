@@ -49,8 +49,22 @@ KEPT = {"kind_select": "_kind_kept", "spacing_slider": "_spacing_kept"}       # 
 def init_session_state_defaults():
     """Fehlende Zustände auffüllen; ausgeblendete Regler (Art bei 0, Spektren-Abstand bei weniger als 2 Hintergrundquellen) kehren zum zuletzt gewählten Wert zurück."""
     for state_key, spec in SETTING_SPECS.items():
-        if state_key not in st.session_state:
-            st.session_state[state_key] = st.session_state.get(KEPT[state_key], spec.default) if state_key in KEPT else spec.default
+        if state_key not in KEPT and state_key not in st.session_state:       # ausblendbare Regler: siehe seed_widget
+            st.session_state[state_key] = spec.default
+
+
+def seed_widget(state_key):
+    """Vor dem Zeichnen eines ausblendbaren Reglers: fehlt sein Zustand, kommt der zuletzt gewählte (oder der Standard-) Wert.
+    Ein Wert, der in einem Lauf ohne den Regler in den Zustand des Reglers geschrieben wird, erscheint später als Mindestwert im Regler, während die App mit dem geschriebenen Wert rechnet."""
+    if state_key not in st.session_state:
+        st.session_state[state_key] = st.session_state.get(KEPT[state_key], SETTING_SPECS[state_key].default)
+
+
+def stash_kept_widget_state():
+    """Permalink und Preset legen den Wert eines ausblendbaren Reglers nur in KEPT ab (der Regler holt ihn sich mit `seed_widget`, sobald er gezeichnet wird)."""
+    for state_key, kept in KEPT.items():
+        if state_key in st.session_state:
+            st.session_state[kept] = st.session_state.pop(state_key)
 
 
 def bounds(state_key):
@@ -76,6 +90,7 @@ def load_permalink_settings():
             except (ValueError, TypeError):
                 pass
     st.session_state["init_start_select"] = int(min(C.INIT_STARTS, key=lambda s: abs(s - st.session_state.get("init_start_select", C.DEFAULT_INIT_START))))
+    stash_kept_widget_state()
     st.session_state["permalink_loaded"] = True
 
 
@@ -93,6 +108,7 @@ def apply_preset(name):
         st.session_state[state_key] = C.PRESETS[name][key]
     st.session_state["_kind_kept"] = C.PRESETS[name]["kind"]
     st.session_state["_spacing_kept"] = C.PRESETS[name]["spacing"]
+    stash_kept_widget_state()
 
 
 def randomize_seed():

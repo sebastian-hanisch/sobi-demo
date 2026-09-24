@@ -24,6 +24,7 @@ from sobi_presets import (
     init_session_state_defaults,
     load_permalink_settings,
     randomize_seed,
+    seed_widget,
     sync_query_params,
 )
 from sobi_visualization import (
@@ -146,6 +147,7 @@ with st.sidebar:
         help="Zusätzliche flächige Quellen. Mit zwei Quellen desselben Typs lässt sich messen, ob ein Verfahren das Paar trennt. Sie zählen zur Quellenzahl.",
     )
     if n_background > 0:
+        seed_widget("kind_select")
         kind = st.selectbox(
             "Art des Hintergrunds", C.BACKGROUND_KINDS, key="kind_select", format_func=lambda k: C.BACKGROUND_LABELS[k],
             help="Gauß-Rauschen: farbig (AR(1)), Gauß'sch - die ICA kann zwei davon nicht trennen, SOBI schon. Rhythmus: sinusförmig, unter-Gauß'sch - die ICA trennt sie, SOBI nur mit langen Verzögerungen.",
@@ -154,6 +156,7 @@ with st.sidebar:
     else:
         kind = st.session_state.get("_kind_kept", C.DEFAULT_BACKGROUND_KIND)
     if n_background >= 2:
+        seed_widget("spacing_slider")
         spacing = st.slider(
             "Spektren-Abstand", *bounds("spacing_slider"), key="spacing_slider", step=0.01,
             help="Wie verschieden die beiden Hintergrundquellen sind: AR-Koeffizient 0.95 gegen 0.95 minus Abstand (bei Rhythmen: 10 Hz gegen 10 Hz plus 29 Hz je 1.0). 0 = gleiches Spektrum: SOBI landet beim Zufall (Trennschärfe 0.43). "
