@@ -21,7 +21,7 @@ Gebaut sind inzwischen SCA, NMF und der Spike-Sorting-Zweig – die Linie ist vo
 |---|---|
 | Zwei Gauß'sche Quellen, verschiedene Autokorrelation (0.95 / 0.5) | ✅ SOBI **Trennschärfe 0.82** (in jedem Datensatz 0.80–0.84), ICA im Mittel **0.41** (0.10–0.73, in 2 von 5 Datensätzen zufällig getrennt); Zufallsniveau eines Paares 0.44; PCA 0.15 |
 | Spektren-Abstand (Gauß-AR) | ✅ 0 → 0.43 (Zufall), 0.02 → 0.22, 0.05 → 0.72, 0.1 → 0.83, 0.2/0.3 → 0.87, 0.45 → 0.82 |
-| Gleiche Autokorrelation | ❌ SOBI 0.43 (0.30–0.50, Zufallsniveau), ICA 0.27 (0.04–0.72). Bei 24 weiteren Datensätzen trennt die ICA in 7 zufällig, SOBI in 2 |
+| Gleiche Autokorrelation | ❌ SOBI 0.43 (0.30–0.50, Zufallsniveau), ICA 0.27 (0.04–0.72, je nach Rechner bis 0.58). Bei 24 weiteren Datensätzen trennt die ICA in 7 zufällig, SOBI in 2 |
 | Zwei Rhythmen (10 und 23 Hz), mittlere Verzögerungen (2–20) | ❌ SOBI **0.38**, ICA 0.76 – die Verzögerungen (0.2–2 ms) sind winzig gegen die Periode (100 ms) |
 | Dieselben Rhythmen, geometrische Verzögerungen (1…256) | ✅ SOBI **0.94**, ICA 0.76; Preis: Neuronen 0.87 statt 0.90 |
 | Nahe Rhythmen (10 und 10.7 Hz) | ❌ SOBI 0.42 (auch geometrisch 0.49), ICA 0.76 – die Verteilungsform (unter-Gauß'sch) trennt, wo das Spektrum es nicht kann |
