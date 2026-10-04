@@ -24,7 +24,7 @@ Gebaut sind inzwischen SCA, NMF und der Spike-Sorting-Zweig – die Linie ist vo
 | Gleiche Autokorrelation | ❌ SOBI 0.43 (0.30–0.50, Zufallsniveau), ICA 0.27 (0.04–0.72, je nach Rechner bis 0.58). Bei 24 weiteren Datensätzen trennt die ICA in 7 zufällig, SOBI in 2 |
 | Zwei Rhythmen (10 und 23 Hz), mittlere Verzögerungen (2–20) | ❌ SOBI **0.38**, ICA 0.76 – die Verzögerungen (0.2–2 ms) sind winzig gegen die Periode (100 ms) |
 | Dieselben Rhythmen, geometrische Verzögerungen (1…256) | ✅ SOBI **0.94**, ICA 0.76; Preis: Neuronen 0.87 statt 0.90 |
-| Nahe Rhythmen (10 und 10.7 Hz) | ❌ SOBI 0.42 (auch geometrisch 0.49), ICA 0.76 – die Verteilungsform (unter-Gauß'sch) trennt, wo das Spektrum es nicht kann |
+| Nahe Rhythmen (10 und 11.4 Hz) | ❌ SOBI 0.42 (auch geometrisch 0.49), ICA 0.76 – die Verteilungsform (unter-Gauß'sch) trennt, wo das Spektrum es nicht kann |
 | Verzögerungs-Mengen (Gauß-Paar) | Trennschärfe kurz (1–5) 0.63, mittel 0.82, lang (10–100) 0.80, geometrisch 0.68; Neuronen 0.89 / 0.90 / 0.82 / 0.88; AMUSE (ein τ) 0.16 / 0.33 / 0.77 / 0.16 |
 | Neuronen (nur Spitzen) | ✅ überraschend: SOBI **0.978** gegen ICA 0.981, AMUSE 0.931 – verschieden breite Spitzen geben verschiedene Autokorrelationen; Spitzen-F1 1.00 |
 | Rauschen | ❌ Neuronen-Korrelation SOBI / ICA: 0.05 → 0.90 / 0.92, 0.1 → 0.73 / 0.83, 0.2 → 0.48 / 0.72, 0.4 → 0.33 / 0.59 – SOBI ist überall rauschempfindlicher |
@@ -117,6 +117,4 @@ pytest tests/ -v
 
 ---
 
-Teil des [Operations-Research-Demo-Portfolios](https://sebastianhanisch.net/demos.html) von
-[Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning.
-Interesse an einer maßgeschneiderten Lösung? [Kontakt aufnehmen](https://sebastianhanisch.net/kontakt.html).
+Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zur Reihe: [Quellentrennung: von ICA bis Verzögerungsgraph](https://sebastianhanisch.net/konzepte-quellentrennung.html).

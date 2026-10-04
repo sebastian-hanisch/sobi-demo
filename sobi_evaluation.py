@@ -300,7 +300,7 @@ SCENES = (
     ("Zwei Gauß-Quellen, verschiedene Autokorrelation", dict(g=2, kind="gauss", spacing=0.45)),
     ("Zwei Gauß-Quellen, gleiche Autokorrelation", dict(g=2, kind="gauss", spacing=0.0)),
     ("Zwei Rhythmen (10 und 23 Hz)", dict(g=2, kind="rhythm", spacing=0.45)),
-    ("Zwei nahe Rhythmen (10 und 10.7 Hz)", dict(g=2, kind="rhythm", spacing=0.05)),
+    ("Zwei nahe Rhythmen (10 und 11.4 Hz)", dict(g=2, kind="rhythm", spacing=0.05)),
 )
 
 

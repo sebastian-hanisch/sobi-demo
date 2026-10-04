@@ -157,7 +157,7 @@ def test_rhythms_need_long_lags_and_the_ica_separates_them_anyway():
 
 
 def test_close_rhythms_are_separated_by_the_ica_but_not_by_sobi():
-    """Beleg für die Grenzen-Tabelle: Rhythmen mit fast gleicher Frequenz (10 und 10.7 Hz): ICA trennt (0.76), SOBI nicht (unter 0.55, auch geometrisch)."""
+    """Beleg für die Grenzen-Tabelle: Rhythmen mit fast gleicher Frequenz (10 und 11.4 Hz): ICA trennt (0.76), SOBI nicht (unter 0.55, auch geometrisch)."""
     a = _analyses(kind="rhythm", spacing=0.05, settings=ev.Settings(lag_set="geometric"))
     assert _mean(a, "ica", "bg_margin") > 0.7 and _mean(a, "sobi", "bg_margin") < 0.55
 
