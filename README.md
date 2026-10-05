@@ -77,6 +77,7 @@ Regler: Neuronen (2–5), Elektroden (1–8), Hintergrundquellen (0–2) mit Art
 - **Auf zwei Hintergrundquellen begrenzt:** mit drei Quellen und sechs Elektroden wäre die Mischung nicht umkehrbar (7 Quellen), und für Triples gibt es kein sauberes Zufallsniveau. **Laufzeitverzögerung entfällt** (Annahme der momentanen Mischung; siehe ica-demo).
 - **Synthetische Daten:** die Spitzen haben feste Form, die Mischung ist exakt linear, das Rauschen weiß und Gauß'sch. **Die Quellenzahl wird als bekannt angenommen.**
 - **Grenzen des Verfahrens:** SOBI nutzt nur Statistik zweiter Ordnung; bei Spitzen bleibt die Verteilungsform ungenutzt. Es gibt keinen Zufallsstart, aber die Wahl der Verzögerungen ist ein Hyperparameter mit großem Einfluss.
+- **Die Spitzenerkennung des Spitzen-F1 (Kopie aus ica-demo) wandte die Mindesttiefe erst ab 10 gefundenen Spitzen an:** bei kürzeren Spuren blieben Rauschspitzen über 4 σ_MAD als Falschtreffer stehen, obwohl dieselbe Spur mit mehr Spitzen sie verworfen hätte. Jetzt gilt die Regel (30 % der typischen Tiefe, typische Tiefe = Median der höchstens 10 tiefsten Spitzen) auch dort, dann mit dem Median der gefundenen Spitzen. Gemessen über die 5 festen Sweep-Datensätze mit den Standard-Einstellungen: alle Sweeps, Tabellen und Presets sowie alle in dieser Datei genannten Zahlen bleiben unverändert. Als Test hinterlegt (`tests/test_detect_spikes_depth.py`).
 
 ## Verifikation
 
